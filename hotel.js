@@ -11,15 +11,13 @@ var HOSPEDES = [
 ] // Formato de Banco de Dados 'json'
 
 var HOTEL = [];
-
-// Criando 20 quartos
-for (let i = 1; i <= 20; i++) {
+for (let i = 1; i <= 20; i++) { 
     HOTEL.push({
         quarto: i,
         esta_reservado: false,
         reservado_por: ''
     });
-}
+} // Criando 20 quartos
 
 usuario_atual = {
     usuario: '',
@@ -49,6 +47,7 @@ function inicio(novo_user) {
 }
 
 function entrar_usuario() {
+    alert('HOTEL SWIFTCON - LOGIN DE USUÁRIO');
     usuario = prompt("Insira seu usuário:");
     if(!(HOSPEDES.some(hospede => hospede.usuario == usuario))) {
         erro(1);
@@ -67,6 +66,10 @@ function entrar_usuario() {
 
 function reserva_quartos() {
     alert('HOTEL SWIFTCON - RESERVA DE QUARTOS');
+
+    var valor_diaria = parseFloat(prompt('Insira o valor da sua diária:'));
+    if(valor_diaria <= 0.00) { erro(4); }
+
     inicio();
 }
 
@@ -90,6 +93,9 @@ function erro(numero) {
             break;
         case 3:
             alert("ERRO: Insira um valor válido para as opções.");
+            break;
+        case 4:
+            alert("ERRO: Insira um valor válido para sua diária.");
             break;
         default:
             alert("ERRO: Inválido");
