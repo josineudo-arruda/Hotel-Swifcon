@@ -8,12 +8,12 @@ var HOSPEDES = [
         usuario: '1234',
         senha: 1234
     }
-]
+] // Formato de Banco de Dados 'json'
 
 usuario_atual = {
     usuario: '',
     senha: 0
-}
+} // Salvar globalmente cookie de acesso
 
 function inicio(novo_user) {
     if(novo_user) { 
