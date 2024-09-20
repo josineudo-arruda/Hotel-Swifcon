@@ -68,3 +68,51 @@ Programa pergunta   =>  "{Nome}, você confirma a hospedagem para Carlos Moreira
 Resposta do usuário =>  S
 Programa exibe         =>  "{Nome}, reserva efetuada para Carlos Moreira."
 Programa exibe         =>  Lista de quartos e suas ocupações "1- livre; 2- livre; 3- livre; 4- livre; 5-ocupado; 6- livre; 7- ocupado; 8- livre; 9- livre; 10-livre; 11- livre; 12- livre; 13- livre; 14- livre; 15-livre; 16- livre; 17- livre; 18- livre; 19- livre; 20-ocupado"
+
+
+2) Como soletra?
+
+Aqui vamos tratar do cadastro de hóspedes. 
+Imagine que uma família acaba de chegar ao balcão do hotel e quer se hospedar. 
+
+Primeiro diremos ao programa o valor padrão da diária e só então cadastraremos todos os hóspedes. 
+O programa receberá vários nomes de hóspedes e suas idades, sem limites. 
+
+Caso o hóspede tenha menos de 6 anos, ela ou ele não paga a diária – nesses casos mostre na tela “[Nome do hóspede] possui gratuidade”.
+Caso o hóspede tenha mais de 60, ela ou ele paga metade da diária – mostre na tela “[Nome do hóspede] paga meia”.
+
+O usuário informará hóspedes até digitar a palavra “PARE”, que interrompe a entrada de dados. 
+
+Ao fim, mostre a quantidade de gratuidades, a quantidade de meias hospedagens e o valor total, considerando todos os hóspedes informados.
+
+Exemplo:
+Programa pergunta   => "Qual o valor padrão da diária?"
+Resposta do usuário => 100
+
+Programa pergunta   => "Qual o nome do Hóspede?"
+Resposta do usuário => Rosani Albuquerque
+Programa pergunta   => "Qual a idade do Hóspede?"
+Resposta do usuário => 25
+Programa exibe         => "Rosani Albuquerque cadastrada(o) com sucesso."
+
+Programa pergunta   => "Qual o nome do Hóspede?"
+Resposta do usuário => Jailson Albuquerque
+Programa pergunta   => "Qual a idade do Hóspede?"
+Resposta do usuário => 6
+Programa exibe          => "Jailson Albuquerque cadastrada(o) com sucesso. Jailson possui gratuidade"
+
+Programa pergunta   => "Qual o nome do Hóspede?"
+Resposta do usuário => Gabriel Albuquerque
+Programa pergunta   => "Qual a idade do Hóspede?"
+Resposta do usuário => 19
+Programa exibe          => "Gabriel Albuquerque cadastrada(o) com sucesso."
+
+Programa pergunta   => "Qual o nome do Hóspede?"
+Resposta do usuário => Wesley Albuquerque
+Programa pergunta   => "Qual a idade do Hóspede?"
+Resposta do usuário => 82
+Programa exibe	      => "Wesley Albuquerque cadastrada(o) com sucesso. Wesley paga meia"
+
+Programa pergunta   => "Qual o nome do Hóspede?"
+Resposta do usuário => PARE
+Programa exibe          => "{Nome}, o valor total das hospedagens é: R$250; 1 gratuidade(s); 1 meia(s)"
