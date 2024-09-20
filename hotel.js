@@ -10,10 +10,16 @@ var HOSPEDES = [
     }
 ]
 
+usuario_atual = {
+    usuario: '',
+    senha: 0
+}
+
 function inicio(novo_user) {
     if(novo_user) { 
         alert("Bem vindo ao Hotel Swiftcon");
         entrar_usuario();
+        alert("Bem vindo ao Hotel Swiftcon, " + usuario_atual.usuario + ". É um imenso prazer ter você por aqui!");
     }
     
     var escolha = parseInt(prompt('Selecione uma opção 1.) Reserva de Quartos 2.) Cadastro de Hóspedes 3.) Abastecimento de Carros 4.) Sair'));
@@ -44,7 +50,8 @@ function entrar_usuario() {
         inicio(true); 
     }
 
-    alert("Bem vindo ao Hotel Swiftcon, " + usuario + ". É um imenso prazer ter você por aqui!");
+    usuario_atual.name = usuario;
+    usuario_atual.senha = senha;
 }
 
 function reserva_quartos() {
@@ -70,6 +77,7 @@ function erro() {
 function sair() {
     var confirma = confirm('Você deseja sair?');
     if (confirma) {
+        alert("Muito obrigado e até logo, " + usuario_atual.usuario + ".")
         window.close();
     } else {
         inicio();
