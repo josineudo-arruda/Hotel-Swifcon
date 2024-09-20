@@ -1,6 +1,16 @@
 
+var HOSPEDES = [
+    {
+        usuario: 'josineudo-arruda',
+        senha: 2678
+    }
+]
+
 function inicio(novo_user) {
-    if(novo_user) { alert("Bem vindo ao Hotel Terabithia"); }
+    if(novo_user) { 
+        alert("Bem vindo ao Hotel Swiftcon");
+        entrar_usuario();
+    }
     
     var escolha = parseInt(prompt('Selecione uma opção 1.) Reserva de Quartos 2.) Cadastro de Hóspedes 3.) Abastecimento de Carros 4.) Sair'));
 
@@ -15,25 +25,39 @@ function inicio(novo_user) {
     } else {
         erro();
     }
-}		
+}
+
+function entrar_usuario() {
+    usuario = prompt("Insira seu usuário:");
+    if(!(HOSPEDES.some(hospede => hospede.usuario == usuario))) {
+        alert("ERRO: Usuário inserido inválido");
+        inicio(true); 
+    }
+
+    senha = parseInt(prompt("Insira a sua senha"));
+    if(!(HOSPEDES.some(hospede => hospede.senha == senha))) {
+        alert("ERRO: Senha inserida inválida");
+        inicio(true); 
+    }
+}
 
 function reserva_quartos() {
-    alert('HOTEL {NOME DO HOTEL} - RESERVA DE QUARTOS');
+    alert('HOTEL SWIFTCON - RESERVA DE QUARTOS');
     inicio();
 }
 
 function cadastro_hospedes() {
-    alert('HOTEL {NOME DO HOTEL} - CADASTRO DE HÓSPEDES');
+    alert('HOTEL SWIFTCON - CADASTRO DE HÓSPEDES');
     inicio();
 }
 
 function abastecer_carros() {
-    alert('HOTEL {NOME DO HOTEL} - ABASTECER');
+    alert('HOTEL SWIFTCON - ABASTECER');
     inicio();
 }
 
 function erro() {
-    alert('Por favor, informe um número entre 1 e 4');
+    alert('ERRO: Informe um número entre 1 e 4');
     inicio();
 }
 
