@@ -33,20 +33,20 @@ function inicio(novo_user) {
     } else if (escolha === 4) {
         sair();
     } else {
-        erro();
+        erro(3);
     }
 }
 
 function entrar_usuario() {
     usuario = prompt("Insira seu usuário:");
     if(!(HOSPEDES.some(hospede => hospede.usuario == usuario))) {
-        alert("ERRO: Usuário inserido inválido");
+        erro(1);
         inicio(true); 
     }
 
     senha = parseInt(prompt("Insira a sua senha"));
     if(!(HOSPEDES.some(hospede => hospede.senha == senha))) {
-        alert("ERRO: Senha inserida inválida");
+        erro(2);
         inicio(true); 
     }
 
@@ -69,8 +69,21 @@ function abastecer_carros() {
     inicio();
 }
 
-function erro() {
-    alert('ERRO: Informe um número entre 1 e 4');
+function erro(numero) {
+    switch(numero) {
+        case 1:
+            alert('ERRO: Usuário inserido inválido.');
+            break;
+        case 2:
+            alert('ERRO: Senha inserida inválida.');
+            break;
+        case 3:
+            alert("ERRO: Insira um valor válido para as opções.");
+            break;
+        default:
+            alert("ERRO: Inválido");
+            break;
+    }
     inicio();
 }
 
