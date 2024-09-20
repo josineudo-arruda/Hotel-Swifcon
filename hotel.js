@@ -81,7 +81,22 @@ function reserva_quartos() {
 
     reservar_quarto(nome_hospede);
 
+    quartos_livres_hotel();
+
     inicio();
+}
+
+function quartos_livres_hotel() {
+    var mensagem = 'Quartos do Hotel:\n'
+    for (let i = 0; i < 20; i++) { 
+        if(HOTEL[i].esta_reservado) {
+            mensagem += 'Quarto '+HOTEL[i].quarto+': Reservado\n';
+        } else {
+            mensagem += 'Quarto '+HOTEL[i].quarto+': Livre\n';
+        }
+    }
+
+    alert(mensagem);
 }
 
 function reservar_quarto(nome_hospede) {
