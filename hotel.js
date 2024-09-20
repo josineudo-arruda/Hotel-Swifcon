@@ -60,7 +60,7 @@ function entrar_usuario() {
         inicio(true); 
     }
 
-    usuario_atual.name = usuario;
+    usuario_atual.usuario = usuario;
     usuario_atual.senha = senha;
 }
 
@@ -70,7 +70,31 @@ function reserva_quartos() {
     var valor_diaria = parseFloat(prompt('Insira o valor da sua diária:'));
     if(valor_diaria <= 0.00) { erro(4); }
 
+    var qtd_diaria = parseInt(prompt('Qual a quantidade de diárias:'));
+    if(qtd_diaria <= 0 || qtd_diaria > 30) { erro(5); }
+
+    var confirma = confirm('Você confirma o valor de ' + valor_diaria * qtd_diaria + '?');
+    if (!confirma) { reserva_quartos(); }
+
+    var nome_hospede = prompt('Insira o nome do hóspede:');
+    if(nome_hospede == '') { erro(6); }
+
+    reservar_quarto(nome_hospede);
+
     inicio();
+}
+
+function reservar_quarto(nome_hospede) {
+    var num_quarto = parseInt(prompt('Qual o número do quarto? 1-20'));
+    var quarto = HOTEL.find(reserva => reserva.quarto == num_quarto)
+    if(quarto.esta_reservado) { 
+        alert("Quarto "+num_quarto+" já está reservado. Escolha outro.");
+        reservar_quarto(); 
+    } else {
+        quarto.esta_reservado = true;
+        quarto.reservado_por = nome_hospede;
+        alert("Quarto "+num_quarto+" foi reservado por "+quarto.reservado_por+".");
+    }
 }
 
 function cadastro_hospedes() {
@@ -95,7 +119,13 @@ function erro(numero) {
             alert("ERRO: Insira um valor válido para as opções.");
             break;
         case 4:
-            alert("ERRO: Insira um valor válido para sua diária.");
+            alert("ERRO: Insira um valor válido para diária (Maior que ZERO).");
+            break;
+        case 5:
+            alert("ERRO: Insira um valor válido os dias (Maior que ZERO e menor que 30).");
+            break;
+        case 6:
+            alert("ERRO: Insira um valor válido para nome (Diferente de NULL).");
             break;
         default:
             alert("ERRO: Inválido");
