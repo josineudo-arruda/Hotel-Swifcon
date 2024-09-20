@@ -1,6 +1,7 @@
 
-function inicio() {
-
+function inicio(novo_user) {
+    if(novo_user) { alert("Bem vindo ao Hotel Terabithia"); }
+    
     var escolha = parseInt(prompt('Selecione uma opção 1.) Reserva de Quartos 2.) Cadastro de Hóspedes 3.) Abastecimento de Carros 4.) Sair'));
 
     if (escolha === 1) {
@@ -45,4 +46,4 @@ function sair() {
     }
 }
 
-inicio();
+inicio(true);
