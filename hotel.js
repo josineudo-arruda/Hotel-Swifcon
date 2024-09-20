@@ -3,6 +3,10 @@ var HOSPEDES = [
     {
         usuario: 'josineudo-arruda',
         senha: 2678
+    },
+    {
+        usuario: '1234',
+        senha: 1234
     }
 ]
 
@@ -39,6 +43,8 @@ function entrar_usuario() {
         alert("ERRO: Senha inserida inválida");
         inicio(true); 
     }
+
+    alert("Bem vindo ao Hotel Swiftcon, " + usuario + ". É um imenso prazer ter você por aqui!");
 }
 
 function reserva_quartos() {
