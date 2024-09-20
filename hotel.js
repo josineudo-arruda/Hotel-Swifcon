@@ -10,6 +10,17 @@ var HOSPEDES = [
     }
 ] // Formato de Banco de Dados 'json'
 
+var HOTEL = [];
+
+// Criando 20 quartos
+for (let i = 1; i <= 20; i++) {
+    HOTEL.push({
+        quarto: i,
+        esta_reservado: false,
+        reservado_por: ''
+    });
+}
+
 usuario_atual = {
     usuario: '',
     senha: 0
