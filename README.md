@@ -1,118 +1,60 @@
 # PonteTerabithia
 
-Invente um nome para o Hotel. 
-Ao acessar o sistema, exiba "Bem vindo ao {Hotel}".
-Ao acessar o sistema, pergunte o nome do usuário e uma senha. O nome do usuário não precisa de validação. A senha deve ser 2678.  
-Na função "inicio", utilize escolha/caso (switch/case) para validar a opção escolhida pelo do usuário.
-Sempre que o usuário acessar o sistema, diga "Bem vindo ao Hotel {Hotel}, {Nome}. É um imenso prazer ter você por aqui!".
-Substituir a expressão {Hotel} pelo nome do hotel informado pelo em todos os pontos do código.
-Sempre que o usuário sair do sistema, exiba a mensagem "Muito obrigado e até logo, {Nome}."
-Para cada escolha que o usuário fizer no menu principal, deve ser desenvolvido um programa seguindo as instruções abaixo. Esse programa deve ser criado utilizando uma função principal como chamada. Todo o restante é feito com sua liberdade.
-Atualize o menu de opções e a função inicio com todas as opções de programas abaixo. 
-Atualize a função "erro" com as novas opções do menu.
-Ao encerrar qualquer programa abaixo, sempre retorne ao menu inicial. 
+## Descrição do Projeto
+Sistema de gerenciamento para um hotel fictício, que permite reservas de quartos e cadastro de hóspedes, entre outras funcionalidades.
 
-1) Quantos quartos são?
-Todo hotel precisava reservar quartos. 
-Então vamos começar por isso. 
+## Funcionalidades
 
-Considere que o hotel possui 20 quartos e ao iniciar o programa todos estão livres. 
+- **Login e boas-vindas**
+  - Exibe: "Bem vindo ao {Hotel}"
+  - Solicita nome do usuário e senha (senha: 2678).
+  - Mensagem de boas-vindas personalizada: "Bem vindo ao Hotel {Hotel}, {Nome}. É um imenso prazer ter você por aqui!"
+  - Mensagem de despedida ao sair: "Muito obrigado e até logo, {Nome}."
 
-Desenvolva um programa que: 
-1) Receba o valor de uma diária no hotel e a quantidade de dias de hospedagem. Valide as informações, ou seja, impeça que o usuário informe dados inválidos, de maneira que o valor da diária não seja negativo e que a quantidade de dias não seja nem negativa, nem maior que 30. 
-Em caso de informação inválida escreva na tela “Valor Inválido” e volte ao inicio do programa. 
+- **Menu Principal**
+  - Utiliza a função `inicio` com `switch/case` para as opções.
+  - Mensagem de erro em caso de opção inválida.
 
-2) Em seguida, caso o usuário tenha informado um valor correto, pergunte o nome do hóspede. 
+### Opções do Menu
 
-3) Agora será informado o número do quarto (de 1 a 20); A informação deve ser armazenada e se outro hóspede tentar ocupar um quarto já ocupado o sistema informará “Quarto já está ocupado”. No caso de um quarto ocupado, deve ser oferecido ao usuário a escolha de outro quarto. 
+1. **Quantos quartos são?**
+   - Recebe valor da diária e quantidade de dias.
+   - Valida: diária não negativa e dias entre 1 e 30.
+   - Cadastro de hóspede e reserva de quarto (1 a 20).
+   - Exibe status dos quartos (livre/ocupado).
 
-4)O próximo passo é perguntar se o usuário confirma a reserva. Caso não aceite, volte ao menu inicial. 
+2. **Como soletra?**
+   - Cadastro de hóspedes com nome e idade.
+   - Gratuidades para menores de 6 anos e meias diárias para maiores de 60.
+   - Exibe total de gratuidade, meias e valor total.
 
-Exemplo 1:
-Programa pergunta   =>  "Qual o valor padrão da diária?"
-Resposta do usuário =>  -12
-Programa exibe         =>   “Valor inválido, {Nome}”
+3. **Com "S" ou com "Z"?**
+   - Menu para cadastrar, pesquisar e listar hóspedes.
+   - Limite de 15 cadastros.
+   - Mensagens de confirmação e erro.
 
-Exemplo 2:
-Programa pergunta   =>  "Qual o valor padrão da diária?"
-Resposta do usuário =>   55.0
-Programa pergunta   =>  "Quantas diárias serão necessárias?"
-Resposta do usuário =>  10
-Programa exibe         =>  "O valor de 10 dias de hospedagem é de R$550.0"
-Programa pergunta   =>  "Qual o nome do hóspede?"
-Resposta do usuário =>  Carlos Moreira
-Programa pergunta   =>  "Qual o quarto para reserva? (1 - 20)?"
-Resposta do usuário =>  7
-Programa exibe         =>  "Quarto Livre."
-Programa pergunta   =>  "{Nome}, você confirma a hospedagem para Carlos Moreira por 10 dias para o quarto 7 por R$550.0? S/N"
-Resposta do usuário =>  S
-Programa exibe         =>  "{Nome}, reserva efetuada para Carlos Moreira."
-Programa exibe         =>  Lista de quartos e suas ocupações "1- livre; 2- livre; 3- livre; 4- livre; 5-ocupado; 6- livre; 7- ocupado; 8- livre; 9- livre; 10-livre; 11- livre; 12- livre; 13- livre; 14- livre; 15-livre; 16- livre; 17- livre; 18- livre; 19- livre; 20-ocupado"
+4. **Que horas você pode?**
+   - Reservas de auditórios com verificação de capacidade.
+   - Disponibilidade conforme dia da semana e horário.
+   - Cálculo de garçons e custos para eventos.
+   - Cálculo de buffet e confirmação da reserva.
 
-Exemplo 3:
-Programa pergunta   =>  "Qual o valor padrão da diária?"
-Resposta do usuário =>  55.0
-Programa pergunta   =>  "Quantas diárias serão necessárias?"
-Resposta do usuário =>  10
-Programa exibe         =>  "O valor de 10 dias de hospedagem é de R$550.0"
-Programa pergunta   =>  "Qual o nome do hóspede?"
-Resposta do usuário =>  Carlos Moreira
-Programa pergunta   =>  "Qual o quarto para reserva? (1 - 20)?"
-Resposta do usuário =>  2
-Programa exibe         =>  "Quarto está ocupado. Escolha outro."
-Programa exibe         =>  Lista de quartos e suas ocupações "1- livre; 2- livre; 3- livre; 4- livre; 5-ocupado; 6- livre; 7- ocupado; 8- livre; 9- livre; 10-livre; 11- livre; 12- livre; 13- livre; 14- livre; 15-livre; 16- livre; 17- livre; 18- livre; 19- livre; 20-ocupado"
-Programa pergunta   =>  "Qual o quarto para reserva? (1 - 20)?"
-Resposta do usuário =>  7
-Programa exibe         =>  "Quarto Livre."
-Programa pergunta   =>  "{Nome}, você confirma a hospedagem para Carlos Moreira por 10 dias para o quarto 7 por R$550.0 ? S/N"
-Resposta do usuário =>  S
-Programa exibe         =>  "{Nome}, reserva efetuada para Carlos Moreira."
-Programa exibe         =>  Lista de quartos e suas ocupações "1- livre; 2- livre; 3- livre; 4- livre; 5-ocupado; 6- livre; 7- ocupado; 8- livre; 9- livre; 10-livre; 11- livre; 12- livre; 13- livre; 14- livre; 15-livre; 16- livre; 17- livre; 18- livre; 19- livre; 20-ocupado"
+5. **Álcool ou gasolina?**
+   - Comparação de preços de combustíveis entre dois postos.
+   - Cálculo da melhor opção de abastecimento.
 
+6. **Ar puro, finalmente.**
+   - Cálculo do custo de manutenção de ar-condicionados.
+   - Exibição do orçamento de diferentes empresas.
+   - Identificação do menor orçamento.
 
-2) Como soletra?
+## Como Usar
+1. Faça o clone do repositório.
+2. Abra o projeto em seu ambiente de desenvolvimento.
+3. Execute o programa e siga as instruções no terminal.
 
-Aqui vamos tratar do cadastro de hóspedes. 
-Imagine que uma família acaba de chegar ao balcão do hotel e quer se hospedar. 
+## Contribuições
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
 
-Primeiro diremos ao programa o valor padrão da diária e só então cadastraremos todos os hóspedes. 
-O programa receberá vários nomes de hóspedes e suas idades, sem limites. 
-
-Caso o hóspede tenha menos de 6 anos, ela ou ele não paga a diária – nesses casos mostre na tela “[Nome do hóspede] possui gratuidade”.
-Caso o hóspede tenha mais de 60, ela ou ele paga metade da diária – mostre na tela “[Nome do hóspede] paga meia”.
-
-O usuário informará hóspedes até digitar a palavra “PARE”, que interrompe a entrada de dados. 
-
-Ao fim, mostre a quantidade de gratuidades, a quantidade de meias hospedagens e o valor total, considerando todos os hóspedes informados.
-
-Exemplo:
-Programa pergunta   => "Qual o valor padrão da diária?"
-Resposta do usuário => 100
-
-Programa pergunta   => "Qual o nome do Hóspede?"
-Resposta do usuário => Rosani Albuquerque
-Programa pergunta   => "Qual a idade do Hóspede?"
-Resposta do usuário => 25
-Programa exibe         => "Rosani Albuquerque cadastrada(o) com sucesso."
-
-Programa pergunta   => "Qual o nome do Hóspede?"
-Resposta do usuário => Jailson Albuquerque
-Programa pergunta   => "Qual a idade do Hóspede?"
-Resposta do usuário => 6
-Programa exibe          => "Jailson Albuquerque cadastrada(o) com sucesso. Jailson possui gratuidade"
-
-Programa pergunta   => "Qual o nome do Hóspede?"
-Resposta do usuário => Gabriel Albuquerque
-Programa pergunta   => "Qual a idade do Hóspede?"
-Resposta do usuário => 19
-Programa exibe          => "Gabriel Albuquerque cadastrada(o) com sucesso."
-
-Programa pergunta   => "Qual o nome do Hóspede?"
-Resposta do usuário => Wesley Albuquerque
-Programa pergunta   => "Qual a idade do Hóspede?"
-Resposta do usuário => 82
-Programa exibe	      => "Wesley Albuquerque cadastrada(o) com sucesso. Wesley paga meia"
-
-Programa pergunta   => "Qual o nome do Hóspede?"
-Resposta do usuário => PARE
-Programa exibe          => "{Nome}, o valor total das hospedagens é: R$250; 1 gratuidade(s); 1 meia(s)"
+## Licença
+Este projeto está licenciado sob a [Licença MIT](LICENSE).
