@@ -28,6 +28,8 @@ var HOSPEDES = [
     { nome: 'Tânia Silva', idade: 78 }
 ];
 
+var EVENTOS = [];
+
 // Criação de 20 quartos do hotel
 var HOTEL = [];
 for (let i = 1; i <= 20; i++) { 
@@ -106,10 +108,14 @@ function reserva_quartos() {
     };
 
     var qtd_diaria = parseInt(prompt('HOTEL SWIFTCON - RESERVA DE QUARTOS\n\nQual a quantidade de diárias (Menor que 30):'));
-    if (qtd_diaria <= 0 || qtd_diaria > 30 || isNaN(qtd_diaria)) {
+    if (qtd_diaria <= 0 || isNaN(qtd_diaria)) {
         erro(2);
         reserva_quartos();
     };
+    if(qtd_diaria > 30) {
+        alert("ERRO: O Numéro máximo de dias é 30.");
+        reserva_quartos();
+    }
 
     if (!confirm('HOTEL SWIFTCON - RESERVA DE QUARTOS\n\nVocê confirma o valor de R$' + (valor_diaria * qtd_diaria).toFixed(2) + '?')) {reserva_quartos();};
 
@@ -251,9 +257,41 @@ function abastecer_carros() {
 
 
 function gerenciar_eventos() {
-    alert('HOTEL SWIFTCON - GESTÃO DE EVENTOS');
+    var escolha = parseInt(prompt('HOTEL SWIFTCON - GESTÃO DE EVENTOS\n\nSelecione uma opção: \n1.) Informar Evento \n2.) Lista Eventos \n3.) Sair'));
 
-    var num_convidados = parseInt(prompt("Qual o número de convidados para o seu evento?"));
+    switch(escolha) {
+        case 1: cadastrar_evento(); break;
+        case 2: listar_eventos(); break;
+        case 3: inicio(); break;
+        default: erro(4);
+    }
+
+    inicio();
+}
+
+function cadastrar_evento() {
+    var num_convidados = parseInt(prompt("HOTEL SWIFTCON - CADASTRAR EVENTO\n\nQual o número de convidados para o seu evento?"));
+    if(num_convidados <= 0 || isNaN(num_convidados)) {
+        erro(1);
+        gerenciar_eventos()
+    }
+    if(num_convidados > 350) {
+        alert("ERRO: O Numéro máximo de convidados para o HOTEL SWIFTCON é 350.");
+        gerenciar_eventos()
+    }
+
+    if(num_convidados > 220) {
+        alert("HOTEL SWIFTCON - CADASTRAR EVENTO\n\nO evento foi agendado no Auditório COLORADO.");
+    } else {
+        alert("HOTEL SWIFTCON - CADASTRAR EVENTO\n\nO evento foi agendado no Auditório LARANJA. "+
+            ((num_convidados-150)<=0 ? ("(Sem cadeiras adicionais)") : ("(Com "+(num_convidados-150)+" cadeiras adicionais)")
+        ));
+    }
+
+}
+
+function listar_eventos() {
+
 }
 
 // =====================
@@ -263,13 +301,13 @@ function gerenciar_eventos() {
 function erro(numero) {
     switch (numero) {
         case 1:
-            alert('ERRO: Valor de String inválido.');
+            alert('ERRO: Valor de String inválido.\nVocê usou valores nulos.');
             break;
         case 2:
-            alert('ERRO: Valor de Integer inválido.');
+            alert('ERRO: Valor de Integer inválido.\nVocê usou valores nulos ou negativos.');
             break;
         case 3:
-            alert("ERRO: Valor de Float inválido.");
+            alert("ERRO: Valor de Float inválido.\nVocê usou valores nulos ou negativos.");
             break;
         case 4:
             alert("ERRO: Opção Inválida.");
