@@ -281,13 +281,15 @@ function cadastrar_evento() {
     }
 
     if(num_convidados > 220) {
-        alert("HOTEL SWIFTCON - CADASTRAR EVENTO\n\nO evento foi agendado no Auditório COLORADO.");
+        alert("HOTEL SWIFTCON - CADASTRAR CONVIDADOS\n\nO evento foi agendado no Auditório COLORADO.");
     } else {
-        alert("HOTEL SWIFTCON - CADASTRAR EVENTO\n\nO evento foi agendado no Auditório LARANJA. "+
+        alert("HOTEL SWIFTCON - CADASTRAR CONVIDADOS\n\nO evento foi agendado no Auditório LARANJA. "+
             ((num_convidados-150)<=0 ? ("(Sem cadeiras adicionais)") : ("(Com "+(num_convidados-150)+" cadeiras adicionais)")
         ));
     }
 
+    var dia_semana = prompt("HOTEL SWIFTCON - AGENDAR AUDITÓRIO\n\nQue dia da semana é o evento? (ex: sabádo)");
+    var horario_inicio = parseInt(prompt("HOTEL SWIFTCON - AGENDAR AUDITÓRIO\n\nQue horas que p evento? (ex: 15)"));
 }
 
 function listar_eventos() {
