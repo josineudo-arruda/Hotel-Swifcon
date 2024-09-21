@@ -245,6 +245,11 @@ function abastecer_carros() {
     inicio();
 }
 
+// =====================
+// Funções de Tratamento de Erros
+// =====================
+
+
 function gerenciar_eventos() {
     alert('HOTEL SWIFTCON - GESTÃO DE EVENTOS');
 
