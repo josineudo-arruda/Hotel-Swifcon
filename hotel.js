@@ -299,7 +299,7 @@ function cadastrar_evento() {
         cadastrar_evento();
     }
 
-    var horario_inicio = parseInt(prompt("HOTEL SWIFTCON - AGENDAR AUDITÓRIO\n\nQue horas que é o evento? (ex: 15)"));
+    var horario_inicio = parseInt(prompt("HOTEL SWIFTCON - AGENDAR AUDITÓRIO\n\nQue horas que é o evento? (ex: 15 => 15 horas)"));
     if(horario_inicio <= 0) {
         erro(1);
         cadastrar_evento();
@@ -312,6 +312,17 @@ function cadastrar_evento() {
         alert("ERRO: Horário inválido para final de semana.");
         cadastrar_evento();
     }
+
+    var duracao_evento = parseInt(prompt("HOTEL SWIFTCON - CONTRATO DE GARÇONS\n\nQual é a duração do evento? (ex: 7 => 7 horas)"));
+    if(duracao_evento <= 0) {
+        erro(1);
+        cadastrar_evento();
+    }
+    var qtd_garcons = Math.ceil(num_convidados/12);
+    var valor_funcionarios = qtd_garcons * 10.50;
+    valor_funcionarios *= duracao_evento;
+
+    alert("HOTEL SWIFTCON - CONTRATO DE GARÇONS\n\nO contrato de trabalho dos garçons para servir por "+duracao_evento+"h é de R$"+valor_funcionarios);
 }
 
 function listar_eventos() {
