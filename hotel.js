@@ -304,6 +304,14 @@ function cadastrar_evento() {
         erro(1);
         cadastrar_evento();
     }
+    if(horario_inicio < 7 || horario_inicio == 24) {
+        alert("ERRO: Horários indisponíveis. Tente entre 7h a 23h de segunda a sexta e 7h a 15h nos finais de semana.");
+        cadastrar_evento();
+    }
+    if(['sabado', 'domingo'].includes(dia_semana) && (horario_inicio > 15)) {
+        alert("ERRO: Horário inválido para final de semana.");
+        cadastrar_evento();
+    }
 }
 
 function listar_eventos() {
