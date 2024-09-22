@@ -279,13 +279,16 @@ function cadastrar_evento() {
         alert("ERRO: O Numéro máximo de convidados para o HOTEL SWIFTCON é 350.");
         gerenciar_eventos()
     }
+    var auditorio = '';
 
     if(num_convidados > 220) {
         alert("HOTEL SWIFTCON - CADASTRAR CONVIDADOS\n\nO evento foi agendado no Auditório COLORADO.");
+        auditorio = "COLORADO";
     } else {
         alert("HOTEL SWIFTCON - CADASTRAR CONVIDADOS\n\nO evento foi agendado no Auditório LARANJA. "+
             ((num_convidados-150)<=0 ? ("(Sem cadeiras adicionais)") : ("(Com "+(num_convidados-150)+" cadeiras adicionais)")
         ));
+        auditorio = ("LARANJA "+((num_convidados-150)<=0 ? ("(Sem cadeiras adicionais)") : ("(Com "+(num_convidados-150)+" cadeiras adicionais")));
     }
 
     var dia_semana = prompt("HOTEL SWIFTCON - AGENDAR AUDITÓRIO\n\nQue dia da semana é o evento? (ex: segunda-feira)");
@@ -313,6 +316,16 @@ function cadastrar_evento() {
         cadastrar_evento();
     }
 
+    var nome_empresa = prompt("HOTEL SWIFTCON - AGENDAR AUDITÓRIO\n\nQual o nome da empresa do evento?");
+    if(!nome_empresa) {
+        erro(1);
+        cadastrar_evento();
+    }
+
+    nome_empresa = nome_empresa.charAt(0).toUpperCase() + nome_empresa.slice(1).toLowerCase();
+    dia_semana = dia_semana.charAt(0).toUpperCase() + dia_semana.slice(1).toLowerCase();
+    alert("HOTEL SWIFTCON - AGENDAR AUDITÓRIO\n\nAuditório reservado: "+auditorio+"\nDia da Semana: "+dia_semana+"\nHorário de início: "+horario_inicio+"\nNome da Empresa: "+nome_empresa);
+
     var duracao_evento = parseInt(prompt("HOTEL SWIFTCON - CONTRATO DE GARÇONS\n\nQual é a duração do evento? (ex: 7 => 7 horas)"));
     if(duracao_evento <= 0) {
         erro(1);
@@ -322,11 +335,60 @@ function cadastrar_evento() {
     var valor_funcionarios = qtd_garcons * 10.50;
     valor_funcionarios *= duracao_evento;
 
-    alert("HOTEL SWIFTCON - CONTRATO DE GARÇONS\n\nO contrato de trabalho dos garçons para servir por "+duracao_evento+"h é de R$"+valor_funcionarios);
+    alert("HOTEL SWIFTCON - CONTRATO DE GARÇONS\n\nO contrato de trabalho dos garçons para servir por "+duracao_evento+"h é de R$"+valor_funcionarios.toFixed(2));
+
+    // Por pessoa é R$0,16 de café, R$0,20 de água e R$2,38 por salgado. Totalizando R$2,74 por pessoa.
+
+    var litros_cafe = num_convidados / 5; 
+    var litros_agua = num_convidados / 2;
+    var salgados = num_convidados * 7;
+
+    alert("HOTEL SWIFTCON - CONTRATO BUFFET\n\nO evento precisará de " + litros_cafe + " litros de café, " + litros_agua + " litros de água, " + salgados + " salgados.");
+
+    var valor_buffet = 2.74 * num_convidados;
+
+    alert(`HOTEL SWIFTCON - AGENDAMENTO FEITO\n
+        Evento no Auditório: ${auditorio}
+        Nome da Empresa: ${nome_empresa}
+        Data: ${dia_semana}, ${horario_inicio}h às ${horario_inicio + duracao_evento}
+        Duração do evento: ${duracao_evento}h
+        Quantidade de garçons: ${qtd_garcons}
+        Quantidade de convidados: ${num_convidados}
+        Custo de garçons: R$${valor_funcionarios.toFixed(2)}
+        Custo de buffet: R$${valor_buffet.toFixed(2)}
+        Valor total: R$${(valor_buffet + valor_funcionarios).toFixed(2)}`);
+
+    var evento = {
+        auditorio: auditorio,
+        dia_semana: dia_semana,
+        horario_inicio: horario_inicio,
+        nome_empresa: nome_empresa.charAt(0).toUpperCase() + nome_empresa.slice(1).toLowerCase(),
+        num_convidados: num_convidados,
+        qtd_garcons: qtd_garcons,
+        custo_funcionarios: valor_funcionarios,
+        custo_buffet: valor_buffet,
+        custo_total: (valor_buffet + valor_funcionarios)
+    };
+
+    EVENTOS.push(evento);
 }
 
 function listar_eventos() {
+    if (EVENTOS.length === 0) {
+        alert("Nenhum evento cadastrado.");
+        return;
+    }
 
+    let mensagem = "Lista de Eventos:\n\n";
+    
+    EVENTOS.forEach((evento, index) => {
+        mensagem += `Evento ${index + 1}:\n`;
+        mensagem += `Auditório: ${evento.auditorio}\nDia: ${evento.dia_semana}\nHorário: ${evento.horario_inicio}h\n`;
+        mensagem += `Empresa: ${evento.nome_empresa}\nConvidados: ${evento.num_convidados}\nGarçons: ${evento.qtd_garcons}\n`;
+        mensagem += `Custo Funcionários: R$${evento.custo_funcionarios.toFixed(2)}\nCusto Buffet: R$${evento.custo_buffet.toFixed(2)}\nTotal: R$${evento.custo_total.toFixed(2)}\n\n`;
+    });
+
+    alert(mensagem);
 }
 
 // =====================
