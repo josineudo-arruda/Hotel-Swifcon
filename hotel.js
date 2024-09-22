@@ -54,14 +54,15 @@ function inicio(novo_user) {
         alert("HOTEL SWIFTCON - INICIO\n\nBem vindo ao Hotel Swiftcon, " + usuario_atual.usuario + ". É um imenso prazer ter você por aqui!");
     }
 
-    var escolha = parseInt(prompt('HOTEL SWIFTCON - INICIO\n\nSelecione uma opção: \n1.) Reserva de Quartos \n2.) Sistema de Hóspedes \n3.) Gestão de Eventos \n4.) Abastecimento de Carros \n5.) Sair'));
+    var escolha = parseInt(prompt('HOTEL SWIFTCON - INICIO\n\nSelecione uma opção: \n1.) Reserva de Quartos \n2.) Sistema de Hóspedes \n3.) Gestão de Eventos \n4.) Abastecimento de Carros \n4.) Comprar Ar-condicionado \n6.) Sair'));
 
     switch (escolha) {
         case 1: reserva_quartos(); break;
         case 2: cadastro_sistema(); break;
         case 3: gerenciar_eventos(); break;
         case 4: abastecer_carros(); break;
-        case 5: sair(); break;
+        case 5: comprar_arCondicionado(); break;
+        case 6: sair(); break;
         default: erro(4); break;
     }
 }
@@ -248,6 +249,15 @@ function listar_hospedes() {
 
 function abastecer_carros() {
     alert('HOTEL SWIFTCON - ABASTECER');
+    inicio();
+}
+
+// =====================
+// Funções de ar-condicionado
+// =====================
+
+function comprar_arCondicionado() {
+    alert('HOTEL SWIFTCON - ARCONDICIONADO');
     inicio();
 }
 
