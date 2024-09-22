@@ -288,8 +288,22 @@ function cadastrar_evento() {
         ));
     }
 
-    var dia_semana = prompt("HOTEL SWIFTCON - AGENDAR AUDITÓRIO\n\nQue dia da semana é o evento? (ex: sabádo)");
-    var horario_inicio = parseInt(prompt("HOTEL SWIFTCON - AGENDAR AUDITÓRIO\n\nQue horas que p evento? (ex: 15)"));
+    var dia_semana = prompt("HOTEL SWIFTCON - AGENDAR AUDITÓRIO\n\nQue dia da semana é o evento? (ex: segunda-feira)");
+    dia_semana = dia_semana.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+    if(!dia_semana) {
+        erro(1);
+        cadastrar_evento();
+    }
+    if(!['segunda-feira', 'terca-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sabado', 'domingo'].includes(dia_semana)) {
+        alert("ERRO: Dia da semana inválido. Tente por exemplo: quarta-feira");
+        cadastrar_evento();
+    }
+
+    var horario_inicio = parseInt(prompt("HOTEL SWIFTCON - AGENDAR AUDITÓRIO\n\nQue horas que é o evento? (ex: 15)"));
+    if(horario_inicio <= 0) {
+        erro(1);
+        cadastrar_evento();
+    }
 }
 
 function listar_eventos() {
