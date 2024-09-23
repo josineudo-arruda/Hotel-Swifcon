@@ -279,6 +279,40 @@ function abastecer_carros() {
     valor_alcool_stark = valor_alcool_stark - ((valor_alcool_stark * 30)/100);
     valor_alcool_wayne = valor_alcool_wayne - ((valor_alcool_wayne * 30)/100);
 
+    var valores = [];
+    valores.push(
+        {
+            valor: valor_alcool_stark,
+            posto: "Stark Petrol",
+            tipo: 'álcool',
+            tem_desconto: true
+        }
+    );
+    valores.push(
+        {
+            valor: valor_gasolina_stark,
+            posto: "Stark Petrol",
+            tipo: 'gasolina',
+            tem_desconto: false
+        }
+    );
+    valores.push(
+        {
+            valor: valor_alcool_wayne,
+            posto: "Wayne Oil",
+            tipo: 'álcool',
+            tem_desconto: true
+        }
+    );
+    valores.push(
+        {
+            valor: valor_gasolina_wayne,
+            posto: "Wayne Oil",
+            tipo: 'gasolina',
+            tem_desconto: false
+        }
+    );
+
     
     
 
