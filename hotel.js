@@ -254,6 +254,12 @@ function abastecer_carros() {
         abastecer_carros()
     }
 
+    var valor_alcool_wayne = parseFloat(prompt('HOTEL SWIFTCON - VALOR ÁLCOOL\n\nInsira o valor do combustível a base de álcool no posto do Wayne Oil:'));
+    if(valor_alcool_wayne <= 0 || isNaN(valor_alcool_wayne) || !valor_alcool_wayne) {
+        erro(3);
+        abastecer_carros()
+    }
+
     
     inicio();
 }
