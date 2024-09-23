@@ -359,6 +359,12 @@ function comprar_arCondicionado() {
         comprar_arCondicionado();
     }
 
+    var min_desconto = parseInt(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira o número minímo de aparelhos para o desconto:'));
+    if (min_desconto < 1 || isNaN(min_desconto) || !min_desconto) {
+        erro(2);
+        comprar_arCondicionado();
+    }
+
     inicio();
 }
 
