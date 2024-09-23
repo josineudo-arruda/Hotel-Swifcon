@@ -313,8 +313,16 @@ function abastecer_carros() {
         }
     );
 
-    
-    
+    var menor_preco = {
+        valor: valor_alcool_stark * valor_gasolina_wayne * valor_alcool_wayne * valor_gasolina_stark
+    };
+    for(let i = 0; i < valores.length; i++) {
+        if(valores[i].valor < menor_preco.valor) {
+            menor_preco = valores[i];
+        }
+    }
+
+   
 
     inicio();
 }
