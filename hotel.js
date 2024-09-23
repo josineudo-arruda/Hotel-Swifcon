@@ -370,6 +370,8 @@ function comprar_arCondicionado() {
         valor_aparelho = valor_aparelho - ((valor_aparelho*desconto)/100);
     }
 
+    alert(`HOTEL SWIFTCON - ARCONDICIONADO\n\nO serviço de ${nome_empresa} custará R$${valor_aparelho.toFixed(2)}`)
+
     inicio();
 }
 
