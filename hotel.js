@@ -248,7 +248,13 @@ function listar_hospedes() {
 // =====================
 
 function abastecer_carros() {
-    alert('HOTEL SWIFTCON - ABASTECER');
+    var valor_alcool_stark = parseFloat(prompt('HOTEL SWIFTCON - VALOR ÁLCOOL\n\nInsira o valor do combustível a base de álcool no posto do Stark Petrol:'));
+    if(valor_alcool_stark <= 0 || isNaN(valor_alcool_stark) || !valor_alcool_stark) {
+        erro(3);
+        abastecer_carros()
+    }
+
+    
     inicio();
 }
 
