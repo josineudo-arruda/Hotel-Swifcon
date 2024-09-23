@@ -322,7 +322,10 @@ function abastecer_carros() {
         }
     }
 
-   
+    alert(`HOTEL SWIFTCON - VALOR GASOLINA\n\n${usuario_atual.usuario}, é mais barato abastecer com ${menor_preco.tipo} no posto ${menor_preco.posto}. Por R$${(
+        menor_preco.tem_desconto ? ((menor_preco.valor * 100)/70).toFixed(2) : (menor_preco.valor).toFixed(2)
+    )}`);
+    
 
     inicio();
 }
