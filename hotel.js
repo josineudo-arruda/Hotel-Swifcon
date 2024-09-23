@@ -354,15 +354,20 @@ function comprar_arCondicionado() {
     }
 
     var desconto = parseInt(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira a porcentagem de desconto: (entre 0 e 100)'));
-    if (desconto < 1 || isNaN(desconto) || !desconto || desconto > 100) {
+    if (desconto < 0 || isNaN(desconto) || !desconto || desconto > 100) {
         erro(2);
         comprar_arCondicionado();
     }
 
     var min_desconto = parseInt(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira o número minímo de aparelhos para o desconto:'));
-    if (min_desconto < 1 || isNaN(min_desconto) || !min_desconto) {
+    if (min_desconto < 0 || isNaN(min_desconto) || !min_desconto) {
         erro(2);
         comprar_arCondicionado();
+    }
+
+    valor_aparelho *= qtd_aparelhos;
+    if(min_desconto > qtd_aparelhos) {
+        valor_aparelho = valor_aparelho - ((valor_aparelho*desconto)/100);
     }
 
     inicio();
