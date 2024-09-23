@@ -353,6 +353,12 @@ function comprar_arCondicionado() {
         comprar_arCondicionado();
     }
 
+    var desconto = parseInt(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira a porcentagem de desconto: (entre 0 e 100)'));
+    if (desconto < 1 || isNaN(desconto) || !desconto || desconto > 100) {
+        erro(2);
+        comprar_arCondicionado();
+    }
+
     inicio();
 }
 
