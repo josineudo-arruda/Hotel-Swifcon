@@ -347,7 +347,11 @@ function comprar_arCondicionado() {
         comprar_arCondicionado();
     }
 
-    
+    var qtd_aparelhos = parseInt(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira a quantidade de aparelhos:'));
+    if (qtd_aparelhos < 1 || isNaN(qtd_aparelhos) || !qtd_aparelhos) {
+        erro(2);
+        comprar_arCondicionado();
+    }
 
     inicio();
 }
