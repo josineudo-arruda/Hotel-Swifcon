@@ -265,7 +265,21 @@ function abastecer_carros() {
         erro(3);
         abastecer_carros()
     }
+    var valor_gasolina_wayne = parseFloat(prompt('HOTEL SWIFTCON - VALOR GASOLINA\n\nInsira o valor do combustível gasolina no posto do Wayne Oil:'));
+    if(valor_gasolina_wayne <= 0 || isNaN(valor_gasolina_wayne) || !valor_gasolina_wayne) {
+        erro(3);
+        abastecer_carros()
+    }
 
+    valor_alcool_stark *= 42;
+    valor_alcool_wayne *= 42;
+    valor_gasolina_stark *= 42;
+    valor_gasolina_wayne *= 42;
+
+    valor_alcool_stark = valor_alcool_stark - ((valor_alcool_stark * 30)/100);
+    valor_alcool_wayne = valor_alcool_wayne - ((valor_alcool_wayne * 30)/100);
+
+    
     
 
     inicio();
