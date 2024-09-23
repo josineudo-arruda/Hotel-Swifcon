@@ -335,42 +335,49 @@ function abastecer_carros() {
 // =====================
 
 function comprar_arCondicionado() {
-    var nome_empresa = prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira o nome da empresa:');
-    if (nome_empresa == '') { 
-        erro(1); 
-        comprar_arCondicionado();
-    }
+    var looping = 'S';
+    while(looping === 'S') {
+        var nome_empresa = prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira o nome da empresa:');
+        if (nome_empresa == '') { 
+            erro(1); 
+            comprar_arCondicionado();
+        }
 
-    var valor_aparelho = parseFloat(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira o valor do aparelho:'));
-    if (valor_aparelho < 1 || isNaN(valor_aparelho) || !valor_aparelho) {
-        erro(3);
-        comprar_arCondicionado();
-    }
+        var valor_aparelho = parseFloat(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira o valor do aparelho:'));
+        if (valor_aparelho < 1 || isNaN(valor_aparelho) || !valor_aparelho) {
+            erro(3);
+            comprar_arCondicionado();
+        }
 
-    var qtd_aparelhos = parseInt(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira a quantidade de aparelhos:'));
-    if (qtd_aparelhos < 1 || isNaN(qtd_aparelhos) || !qtd_aparelhos) {
-        erro(2);
-        comprar_arCondicionado();
-    }
+        var qtd_aparelhos = parseInt(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira a quantidade de aparelhos:'));
+        if (qtd_aparelhos < 1 || isNaN(qtd_aparelhos) || !qtd_aparelhos) {
+            erro(2);
+            comprar_arCondicionado();
+        }
 
-    var desconto = parseInt(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira a porcentagem de desconto: (entre 0 e 100)'));
-    if (desconto < 0 || isNaN(desconto) || !desconto || desconto > 100) {
-        erro(2);
-        comprar_arCondicionado();
-    }
+        var desconto = parseInt(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira a porcentagem de desconto: (entre 0 e 100)'));
+        if (desconto < 0 || isNaN(desconto) || !desconto || desconto > 100) {
+            erro(2);
+            comprar_arCondicionado();
+        }
 
-    var min_desconto = parseInt(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira o número minímo de aparelhos para o desconto:'));
-    if (min_desconto < 0 || isNaN(min_desconto) || !min_desconto) {
-        erro(2);
-        comprar_arCondicionado();
-    }
+        var min_desconto = parseInt(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira o número minímo de aparelhos para o desconto:'));
+        if (min_desconto < 0 || isNaN(min_desconto) || !min_desconto) {
+            erro(2);
+            comprar_arCondicionado();
+        }
 
-    valor_aparelho *= qtd_aparelhos;
-    if(min_desconto > qtd_aparelhos) {
-        valor_aparelho = valor_aparelho - ((valor_aparelho*desconto)/100);
-    }
+        valor_aparelho *= qtd_aparelhos;
+        if(min_desconto > qtd_aparelhos) {
+            valor_aparelho = valor_aparelho - ((valor_aparelho*desconto)/100);
+        }
 
-    alert(`HOTEL SWIFTCON - ARCONDICIONADO\n\nO serviço de ${nome_empresa} custará R$${valor_aparelho.toFixed(2)}`)
+        alert(`HOTEL SWIFTCON - ARCONDICIONADO\n\nO serviço de ${nome_empresa} custará R$${valor_aparelho.toFixed(2)}`)
+
+        var escolha = prompt("HOTEL SWIFTCON - ARCONDICIONADO\n\nDeseja continuar? (S/N)");
+        if(escolha == "N" || escolha == "n") {looping = "N"}
+    }
+    
 
     inicio();
 }
