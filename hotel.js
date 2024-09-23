@@ -335,11 +335,19 @@ function abastecer_carros() {
 // =====================
 
 function comprar_arCondicionado() {
-    var nome_empresa = parseInt(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira o nome da empresa:'));
+    var nome_empresa = prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira o nome da empresa:');
     if (nome_empresa == '') { 
         erro(1); 
         comprar_arCondicionado();
     }
+
+    var valor_aparelho = parseFloat(prompt('HOTEL SWIFTCON - ARCONDICIONADO\n\nInsira o valor do aparelho:'));
+    if (valor_aparelho < 1 || isNaN(valor_aparelho) || !valor_aparelho) {
+        erro(3);
+        comprar_arCondicionado();
+    }
+
+    
 
     inicio();
 }
