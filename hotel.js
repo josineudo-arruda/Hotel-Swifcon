@@ -54,7 +54,7 @@ function inicio(novo_user) {
         alert("HOTEL SWIFTCON - INICIO\n\nBem vindo ao Hotel Swiftcon, " + usuario_atual.usuario + ". É um imenso prazer ter você por aqui!");
     }
 
-    var escolha = parseInt(prompt('HOTEL SWIFTCON - INICIO\n\nSelecione uma opção: \n1.) Reserva de Quartos \n2.) Sistema de Hóspedes \n3.) Gestão de Eventos \n4.) Abastecimento de Carros \n4.) Comprar Ar-condicionado \n6.) Sair'));
+    var escolha = parseInt(prompt('HOTEL SWIFTCON - INICIO\n\nSelecione uma opção: \n1.) Reserva de Quartos \n2.) Sistema de Hóspedes \n3.) Gestão de Eventos \n4.) Abastecimento de Carros \n5.) Comprar Ar-condicionado \n6.) Sair'));
 
     switch (escolha) {
         case 1: reserva_quartos(); break;
