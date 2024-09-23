@@ -260,7 +260,14 @@ function abastecer_carros() {
         abastecer_carros()
     }
 
+    var valor_gasolina_stark = parseFloat(prompt('HOTEL SWIFTCON - VALOR GASOLINA\n\nInsira o valor do combustível gasolina no posto do Stark Petrol:'));
+    if(valor_gasolina_stark <= 0 || isNaN(valor_gasolina_stark) || !valor_gasolina_stark) {
+        erro(3);
+        abastecer_carros()
+    }
+
     
+
     inicio();
 }
 
